@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { PageProps } from "next";
-import { notFound, notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
