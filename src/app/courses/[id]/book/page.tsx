@@ -46,8 +46,13 @@ const courses = [
   // More courses...
 ];
 
+interface PageProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
 // Making the component async to properly handle the params
-export default async function BookPage({ params }: { params: { id: string } }) {
+export default async function BookPage({ params, searchParams }: PageProps) {
   // Handle the params asynchronously
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
