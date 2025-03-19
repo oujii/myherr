@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { PageProps } from "next";
+import { notFound, notFound } from "next/navigation";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 interface PageProps {
   params: { id: string };
 }
+
 
 // This would come from an API in a real application
 const courses = [
@@ -54,7 +56,7 @@ const courses = [
 ];
 
 // Making the component async to properly handle the params
-export default function BookPage({ params }: PageProps) {
+export default async function BookPage({ params }: PageProps) {
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
 
