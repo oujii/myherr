@@ -190,12 +190,11 @@ const courses = [
   },
 ];
 
-type CoursesPageProps = {
-  params: Record<string, never>;
-  searchParams: { week?: string };
-}
-
-export default function CoursesPage({ searchParams }: CoursesPageProps) {
+export default function CoursesPage({ 
+  searchParams 
+}: { 
+  searchParams: { week?: string } 
+}) {
   const initialTab = searchParams.week || "1";
 
   return (
