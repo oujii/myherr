@@ -190,7 +190,16 @@ const courses = [
   },
 ];
 
-// @ts-ignore
+// This is needed for static export
+export function generateStaticParams() {
+  return [
+    { week: "1" },
+    { week: "2" },
+    { week: "3" },
+    { week: "4" },
+  ];
+}
+
 export default function CoursesPage({ 
   params, 
   searchParams 
