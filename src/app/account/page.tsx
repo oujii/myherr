@@ -159,7 +159,12 @@ export default function AccountPage() {
   );
 }
 
-function BookingCard({ booking }: { booking: any }) {
+interface Booking {
+  week: number;
+  // Add other booking properties here as needed
+}
+
+function BookingCard({ booking }: { booking: Booking }) {
   // Helper function to determine week color
   const getWeekColor = (week: number): string => {
     switch (week) {
