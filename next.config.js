@@ -14,6 +14,7 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  output: "export",
   images: {
     unoptimized: true,
     domains: [
