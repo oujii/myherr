@@ -190,7 +190,13 @@ const courses = [
   },
 ];
 
-export default function CoursesPage({ searchParams }: { searchParams: { week?: string } }) {
+import { PageProps } from "next/types";
+
+export default function CoursesPage({ 
+  searchParams 
+}: PageProps<{
+  searchParams: { week?: string }
+}>) {
   const initialTab = searchParams.week || "1";
 
   return (
