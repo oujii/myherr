@@ -190,8 +190,14 @@ const courses = [
   },
 ];
 
-// @ts-nocheck
-export default function CoursesPage({ params, searchParams }) {
+// @ts-ignore
+export default function CoursesPage({ 
+  params, 
+  searchParams 
+}: {
+  params: Record<string, never>;
+  searchParams: { week?: string };
+}) {
   const initialTab = searchParams.week || "1";
 
   return (
@@ -229,16 +235,19 @@ export default function CoursesPage({ params, searchParams }) {
   );
 }
 
+// Define the course type to avoid repetition
+type Course = {
+  id: number;
+  title: string;
+  level: string;
+  description: string;
+  week: number;
+  availability: { leader: number; follower: number };
+  price: number;
+};
+
 function CourseCard({ course, weekColor }: {
-  course: {
-    id: number;
-    title: string;
-    level: string;
-    description: string;
-    week: number;
-    availability: { leader: number; follower: number };
-    price: number;
-  };
+  course: Course;
   weekColor: string;
 }) {
   return (
