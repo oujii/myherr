@@ -1,17 +1,23 @@
 import Link from "next/link";
-import { Metadata } from "next";
-import { PageProps } from "next";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: 'Book Course - Herräng Dance Camp',
+  description: 'Book your course at Herräng Dance Camp',
+};
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 
-interface PageProps {
-  params: { id: string };
-}
+type BookPageProps = {
+  params: {
+    id: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
+};
 
 
 // This would come from an API in a real application
@@ -55,8 +61,7 @@ const courses = [
   // More courses...
 ];
 
-// Making the component async to properly handle the params
-export default async function BookPage({ params }: PageProps) {
+export default function BookPage({ params, searchParams }: BookPageProps) {
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
 
