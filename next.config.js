@@ -15,6 +15,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: "export",
+  // Required for static export with dynamic routes
+  trailingSlash: true,
   images: {
     unoptimized: true,
     domains: [
