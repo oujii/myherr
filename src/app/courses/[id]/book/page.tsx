@@ -8,6 +8,10 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 
+interface PageProps {
+  params: { id: string };
+}
+
 // This would come from an API in a real application
 const courses = [
   {
@@ -50,10 +54,7 @@ const courses = [
 ];
 
 // Making the component async to properly handle the params
-export default async function BookPage(
-  { params }: { params: { id: string } }
-)  {
-  // Handle the params asynchronously
+export default function BookPage({ params }: PageProps) {
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
 
