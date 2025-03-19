@@ -191,7 +191,7 @@ const courses = [
 ];
 
 type CoursesPageProps = {
-  params: {};
+  params: Record<string, never>;
   searchParams: { week?: string };
 }
 
