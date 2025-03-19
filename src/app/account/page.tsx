@@ -116,7 +116,7 @@ export default function AccountPage() {
                 <CardContent>
                   <div>
                     <h3 className="font-medium text-sm text-gray-500">Password</h3>
-                    <p className="mt-1">••••••••••••</p>
+                    <p className="mt-1"></p>
                   </div>
                 </CardContent>
                 <CardFooter>
