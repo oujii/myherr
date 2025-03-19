@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-type PageProps<T = Record<string, unknown>> = {
-  params: T;
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -53,21 +50,16 @@ const courses = [
 ];
 
 // Making the component async to properly handle the params
-export default async function BookPage({ params, searchParams }: PageProps<{ id: string }>)  {
+export default async function BookPage(
+  { params }: { params: { id: string } }
+)  {
   // Handle the params asynchronously
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
 
   if (!course) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-4">Course Not Found</h1>
-        <p className="mb-8">The course you're looking for doesn't exist or has been removed.</p>
-        <Link href="/courses">
-          <Button className="herrang-btn-green">Back to Courses</Button>
-        </Link>
-      </div>
-    );
+    notFound();
+    return null;
   }
 
   const weekColor = getWeekColor(course.week);
