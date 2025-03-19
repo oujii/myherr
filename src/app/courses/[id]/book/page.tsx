@@ -1,5 +1,10 @@
-import { Metadata } from "next";
 import Link from "next/link";
+import { Metadata } from "next";
+
+type PageProps<T = Record<string, unknown>> = {
+  params: T;
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -47,13 +52,8 @@ const courses = [
   // More courses...
 ];
 
-type Props = {
-  params: { id: string }
-  searchParams?: { [key: string]: string | string[] | undefined }
-}
-
 // Making the component async to properly handle the params
-export default async function BookPage({ params, searchParams }: Props) {
+export default async function BookPage({ params, searchParams }: PageProps<{ id: string }>)  {
   // Handle the params asynchronously
   const courseId = Number(params.id);
   const course = courses.find(c => c.id === courseId);
