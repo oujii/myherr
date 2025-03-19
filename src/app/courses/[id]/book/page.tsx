@@ -12,12 +12,14 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 
-type BookPageProps = {
+import { PageProps } from 'next/types';
+
+type BookPageProps = PageProps<{
   params: {
     id: string;
   };
   searchParams?: Record<string, string | string[] | undefined>;
-};
+}>;
 
 
 // This would come from an API in a real application
